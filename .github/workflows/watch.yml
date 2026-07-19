@@ -1,0 +1,51 @@
+# FROG Web Shop 新商品ウォッチ(30分おきにクラウドで自動実行)
+# GitHubのcronはUTC基準だが、30分間隔なので時差の影響はない。
+# 無料枠の都合で実行が数分〜十数分遅れることがある。
+name: frog-shop-watch
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: # 手動実行ボタン
+
+permissions:
+  contents: write
+
+concurrency:
+  group: frog-shop-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check RSS and notify
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python3 check_new_items.py
+
+      - name: Commit updated state
+        run: |
+          if ! git diff --quiet seen_items.json; then
+            git config user.name "frog-watch-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add seen_items.json
+            git commit -m "update seen items"
+            git push
+          fi
+
+      # 60日間コミットが無いとGitHubが定期実行を自動停止するため、
+      # 50日以上更新が無ければ空コミットで「生存確認」する
+      - name: Keep repository active
+        run: |
+          last=$(git log -1 --format=%ct)
+          now=$(date +%s)
+          days=$(( (now - last) / 86400 ))
+          if [ "$days" -ge 50 ]; then
+            git config user.name "frog-watch-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "keepalive"
+            git push
+          fi
