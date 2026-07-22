@@ -1,11 +1,33 @@
 {
- "cutoff": "2026-07-20T17:14:59.084661+00:00",
- "seen": [
-  "https://frog-ltd.com/SHOP/260717-1.html",
-  "https://frog-ltd.com/SHOP/260717-2.html",
-  "https://frog-ltd.com/SHOP/260719-2.html",
-  "https://frog-ltd.com/SHOP/260719-3.html",
-  "https://frog-ltd.com/SHOP/260720.html",
-  "https://frog-ltd.com/SHOP/260819-1.html"
- ]
+ "frog": {
+  "cutoff": "2026-07-20T17:14:59.084661+00:00",
+  "seen": [
+   "https://frog-ltd.com/SHOP/260717-1.html",
+   "https://frog-ltd.com/SHOP/260717-2.html",
+   "https://frog-ltd.com/SHOP/260719-2.html",
+   "https://frog-ltd.com/SHOP/260719-3.html",
+   "https://frog-ltd.com/SHOP/260720.html",
+   "https://frog-ltd.com/SHOP/260819-1.html"
+  ]
+ },
+ "fishmagnet": {
+  "cutoff": "2026-07-21T00:00:00+00:00",
+  "seen": [
+   "https://fishmagnet.shop-pro.jp/?pid=192119108",
+   "https://fishmagnet.shop-pro.jp/?pid=192119120",
+   "https://fishmagnet.shop-pro.jp/?pid=192286084",
+   "https://fishmagnet.shop-pro.jp/?pid=192286106",
+   "https://fishmagnet.shop-pro.jp/?pid=192286128",
+   "https://fishmagnet.shop-pro.jp/?pid=192444107",
+   "https://fishmagnet.shop-pro.jp/?pid=192444117",
+   "https://fishmagnet.shop-pro.jp/?pid=192719479",
+   "https://fishmagnet.shop-pro.jp/?pid=192719480",
+   "https://fishmagnet.shop-pro.jp/?pid=192719481",
+   "https://fishmagnet.shop-pro.jp/?pid=192719482",
+   "https://fishmagnet.shop-pro.jp/?pid=192719483",
+   "https://fishmagnet.shop-pro.jp/?pid=192719485",
+   "https://fishmagnet.shop-pro.jp/?pid=192719486",
+   "https://fishmagnet.shop-pro.jp/?pid=192719489"
+  ]
+ }
 }
